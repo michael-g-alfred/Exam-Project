@@ -249,7 +249,7 @@ function validationForm(e) {
     localStorage.setItem("Lastname", signupLastname.value);
     localStorage.setItem("Email", signupEmail.value);
     localStorage.setItem("Password", signupPassword.value);
-    window.location.replace("../pages/ExamPage.html");
+    window.location.replace("/pages/ExamPage.html");
   }
 }
 
@@ -294,7 +294,7 @@ function validateLoginForm(e) {
         localStorage.removeItem(key);
       }
     });
-    window.location.replace("../pages/ExamPage.html");
+    window.location.replace("/pages/ExamPage.html");
   }
 }
 
