@@ -6,7 +6,7 @@ body {
   display: grid;
   grid-template-columns: auto 35rem;
   grid-template-areas: "main aside";
-  gap: 2rem;
+  gap: 1rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #0d1117;
 }
@@ -192,6 +192,31 @@ main .userContainer h3 {
 /* Questions series container */
 #questionsSeriesContainer {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  border: 0.25rem solid color-mix(in oklab, #0d419d 70%, transparent);
+  margin-bottom: 1rem;
+  color: white;
+  border-radius: 2rem;
+}
+.questionsSeriesContainer_Title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 0.25rem solid color-mix(in oklab, #c9e6ff 25%, transparent);
+  background-color: color-mix(in oklab, #c9e6ff 25%, transparent);
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.questionsSeriesContainer_Content {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(14, 1fr);
   justify-items: center;
@@ -372,8 +397,12 @@ aside {
   background-color: color-mix(in oklab, #c9e6ff 25%, transparent);
   color: white;
   border-radius: 1rem;
+  cursor: pointer;
 }
-
+.markList_Title:hover,
+.questionsSeriesContainer_Title:hover {
+  border-color: color-mix(in oklab, #c9e6ff 20%, white);
+}
 .markList_Content {
   width: 100%;
   display: flex;

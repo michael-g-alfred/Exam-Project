@@ -244,6 +244,14 @@ function bindEvents() {
 
   $(document).on("click", ".marked-summary", handleMarkedSummaryClick);
 
+  $(document).on("click", ".markList_Title", function () {
+    $(".markList_Content").slideToggle();
+  });
+
+  $(document).on("click", ".questionsSeriesContainer_Title", function () {
+    $(".questionsSeriesContainer_Content").slideToggle();
+  });
+
   $(document).on("click", ".unmarkBtn", handleUnmarkClick);
 
   $("#submitBtn").on("click", handleSubmitClick);
@@ -255,7 +263,7 @@ function updateButtonStates() {
 }
 
 function updateQuestionsSeries() {
-  const $seriesContainer = $("#questionsSeriesContainer").empty();
+  const $seriesContainer = $(".questionsSeriesContainer_Content").empty();
   questions.forEach((el, index) => {
     const $btn = $("<button>", {
       text: index + 1,
