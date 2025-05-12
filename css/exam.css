@@ -1,0 +1,482 @@
+@import url(./base.css);
+
+body {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 35rem;
+  grid-template-areas: "main aside";
+  gap: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #0d1117;
+}
+
+/* Main content area */
+main {
+  width: 100%;
+  position: relative;
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 0rem 2rem 2rem 0rem;
+  background-color: #02081e;
+}
+
+.upperdock {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "userInfo timeLeft logOut";
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  /* justify-items: center; */
+  gap: 2rem;
+  padding: 2rem;
+  background-color: color-mix(in oklab, #c9e6ff 25%, transparent);
+  border-radius: 2rem 2rem 0rem 0rem;
+}
+
+main .profileImage {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+main .profileImage img {
+  width: 5rem;
+  height: 5rem;
+}
+main .userContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  border-radius: 2rem;
+}
+main .userContainer h3 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #facc15;
+}
+.time-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  padding: 0.5rem;
+  color: color-mix(in oklab, #0d419d 70%, black);
+  background-color: color-mix(in oklab, transparent 50%, white);
+  border-radius: 1rem;
+  transition: all 0.3s ease-in !important;
+}
+
+#logoutBtn {
+  grid-area: logOut;
+  justify-self: flex-end;
+  border: 0.25rem solid color-mix(in oklab, #d92d20 70%, transparent);
+  background-color: color-mix(in oklab, #d92d20 70%, black);
+}
+
+/* Containers */
+.xxContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.errorImg {
+  position: absolute;
+  width: 100%;
+  max-width: 60rem;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#questionsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+/* Timer Loader */
+.timerLoader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-left: 0.25rem solid color-mix(in oklab, #0d419d 70%, transparent);
+  border-right: 0.25rem solid color-mix(in oklab, #0d419d 70%, transparent);
+}
+
+.timerSlider {
+  width: 0%;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: color-mix(in oklab, #0d419d 70%, black);
+  transition: width 1s linear;
+}
+
+/* Question containers */
+.questionContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 0 0 3rem 3rem;
+  border: 0.25rem solid color-mix(in oklab, #0d419d 70%, transparent);
+  margin-bottom: 1rem;
+  color: white;
+  overflow-x: auto;
+}
+
+.questionContainer h1 {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: #facc15;
+}
+
+/* Highlighted mark */
+.mark {
+  text-decoration: underline;
+  background-color: color-mix(in oklab, #facc15 70%, transparent);
+  padding: 1rem;
+  color: white !important;
+  transition: all 0.3s ease-in;
+}
+
+.marked-summary {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: 0.25rem solid color-mix(in oklab, #facc15 70%, transparent);
+  cursor: pointer;
+}
+.marked-summary:hover {
+  border: 0.25rem solid color-mix(in oklab, #facc15 70%, transparent);
+}
+.marked-summary span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #facc15;
+}
+
+/* Questions series container */
+#questionsSeriesContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  border: 0.25rem solid color-mix(in oklab, #0d419d 70%, transparent);
+  margin-bottom: 1rem;
+  color: white;
+  border-radius: 2rem;
+}
+.questionsSeriesContainer_Title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 0.25rem solid color-mix(in oklab, #c9e6ff 25%, transparent);
+  background-color: color-mix(in oklab, #c9e6ff 25%, transparent);
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.questionsSeriesContainer_Content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  border: 0.25rem solid color-mix(in oklab, #0d419d 70%, transparent);
+  margin-bottom: 1rem;
+  color: white;
+  border-radius: 2rem;
+  scroll-behavior: smooth;
+  scrollbar-color: color-mix(in oklab, #0d419d 70%, black) transparent;
+}
+
+/* Navigation buttons */
+.questionNavBtn {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Answers container */
+.answersContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+  padding: 0rem 1rem;
+}
+
+.answerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Progress container */
+#progressContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  gap: 2rem;
+}
+
+/* Control buttons */
+.controlBtns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+button {
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 0.25rem solid color-mix(in oklab, #0d419d 70%, transparent);
+  background-color: color-mix(in oklab, #0d419d 70%, black);
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: color-mix(in oklab, #0d419d 20%, white);
+}
+
+button:disabled {
+  border: 0.25rem solid color-mix(in oklab, #667085 50%, transparent);
+  background-color: color-mix(in oklab, #667085 15%, transparent);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Specific buttons */
+.markBtn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  border: 0.25rem solid color-mix(in oklab, #facc15 70%, transparent);
+  background-color: color-mix(in oklab, #facc15 70%, black);
+}
+
+.unmarkBtn {
+  height: 100%;
+  border: 0.25rem solid color-mix(in oklab, #d92d20 70%, transparent);
+  background-color: color-mix(in oklab, #d92d20 70%, black);
+}
+
+#submitBtn {
+  width: 20rem;
+  border: 0.25rem solid color-mix(in oklab, #12b76a 70%, transparent);
+  background-color: color-mix(in oklab, #12b76a 70%, black);
+}
+
+#markBtn:hover {
+  border-color: color-mix(in oklab, #facc15 20%, white);
+}
+
+#logoutBtn:hover {
+  border-color: color-mix(in oklab, #d92d20 20%, white);
+}
+
+#submitBtn:hover {
+  border-color: color-mix(in oklab, #12b76a 20%, white);
+}
+
+/* Radio buttons */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  border: 0.25rem solid color-mix(in oklab, #0d419d 70%, transparent);
+  border-radius: 50%;
+  background-color: #0d1117;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background-color: color-mix(in oklab, #0d419d 50%, white);
+  transform: translate(-50%, -50%);
+}
+
+input[type="radio"]:hover {
+  border-color: color-mix(in oklab, #0d419d 20%, white);
+}
+
+/* Sidebar */
+aside {
+  width: 100%;
+  height: 100%;
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: rgb(2, 8, 30);
+  border-radius: 2rem 0rem 0rem 2rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: color-mix(in oklab, #0d419d 70%, black) transparent;
+}
+.markList_Title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 0.25rem solid color-mix(in oklab, #c9e6ff 25%, transparent);
+  background-color: color-mix(in oklab, #c9e6ff 25%, transparent);
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.markList_Title:hover,
+.questionsSeriesContainer_Title:hover {
+  border-color: color-mix(in oklab, #c9e6ff 20%, white);
+}
+.markList_Content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 1rem;
+}
+
+/* Portrait mode: Large screens (min-width: 1200px) */
+@media (min-width: 1200px) and (orientation: portrait) {
+}
+
+/* Landscape mode: Medium screens (max-width: 1200px) */
+@media (max-width: 1200px) and (orientation: landscape) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "main"
+      "aside";
+  }
+  main {
+    border-radius: 0rem 0rem 2rem 2rem;
+  }
+
+  .upperdock {
+    gap: 1rem;
+  }
+
+  .questionsSeriesContainer_Content {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  .questionNavBtn {
+    width: 4rem;
+    height: 4rem;
+  }
+  aside {
+    height: fit-content;
+  }
+  .markList_Content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  .marked-summary {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 0.25rem solid color-mix(in oklab, #facc15 70%, transparent);
+    cursor: pointer;
+  }
+}
+
+/* Portrait mode: Small screens (max-width: 900px) */
+@media (max-width: 900px) and (orientation: portrait) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "main"
+      "aside";
+  }
+  main {
+    border-radius: 0rem 0rem 2rem 2rem;
+  }
+  .upperdock {
+    gap: 1rem;
+  }
+
+  .questionsSeriesContainer_Content {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  aside {
+    height: fit-content;
+  }
+  .markList_Content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

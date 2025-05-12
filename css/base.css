@@ -1,0 +1,132 @@
+/* Ensure box-sizing consistency */
+*,
+*::after,
+*::before {
+  box-sizing: border-box; /* Use border-box instead of inherit for consistency */
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  --font-size-h1: 3.2rem;
+  --font-size-h2: 2.8rem;
+  --font-size-h3: 2.4rem;
+  --font-size-h4: 2rem;
+  --font-size-h5: 1.6rem;
+  --font-size-h6: 1.4rem;
+  --font-size-p: 1.6rem;
+  --font-size-button: 1.6rem;
+  --font-size-label: 1.6rem;
+  --font-size-span: 1.6rem;
+  --font-size-input: 1.6rem;
+}
+
+html {
+  /* Base font size: 1rem = 10px (10px/16px = 62.5%) */
+  font-size: 62.5%;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Portrait mode: Large screens (min-width: 1200px) */
+@media (min-width: 1200px) and (orientation: portrait) {
+  html {
+    font-size: 75%; /* 1rem = 12px (12/16) */
+  }
+}
+
+/* Landscape mode: Medium screens (max-width: 1200px) */
+@media (max-width: 1200px) and (orientation: landscape) {
+  html {
+    font-size: 56.25%; /* 1rem = 9px (9/16) */
+  }
+}
+
+/* Portrait mode: Small screens (max-width: 900px) */
+@media (max-width: 900px) and (orientation: portrait) {
+  html {
+    font-size: 50%; /* 1rem = 8px (8/16) */
+  }
+}
+
+h1 {
+  font-size: var(--font-size-h1) !important;
+}
+
+h2 {
+  font-size: var(--font-size-h2) !important;
+}
+
+h3 {
+  font-size: var(--font-size-h3) !important;
+}
+
+h4 {
+  font-size: var(--font-size-h4) !important;
+}
+
+h5 {
+  font-size: var(--font-size-h5) !important;
+}
+
+h6 {
+  font-size: var(--font-size-h6) !important;
+}
+
+p {
+  font-size: var(--font-size-p) !important;
+}
+
+button {
+  font-size: var(--font-size-button) !important;
+  font-weight: bold !important;
+}
+
+label {
+  font-size: var(--font-size-label) !important;
+}
+
+span {
+  font-size: var(--font-size-span) !important;
+}
+
+input {
+  font-size: var(--font-size-input) !important;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-h1: 2.6rem;
+    --font-size-h2: 2.4rem;
+    --font-size-h3: 2.2rem;
+    --font-size-h4: 2rem;
+    --font-size-h5: 1.8rem;
+    --font-size-h6: 1.6rem;
+    --font-size-p: 1.5rem;
+    --font-size-button: 1.5rem;
+    --font-size-label: 1.5rem;
+    --font-size-span: 1.5rem;
+    --font-size-input: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-h1: 2.2rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.8rem;
+    --font-size-h4: 1.6rem;
+    --font-size-h5: 1.4rem;
+    --font-size-h6: 1.2rem;
+    --font-size-p: 1.4rem;
+    --font-size-button: 1.4rem;
+    --font-size-label: 1.4rem;
+    --font-size-span: 1.4rem;
+    --font-size-input: 1.4rem;
+  }
+}

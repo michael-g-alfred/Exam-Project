@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>LoginPage</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <div class="bodyContainer">
+    <div class="bodyContainer-images">
+      <img src="./assets/bg.svg" alt="SVG Image" />
+    </div>
+    <div class="bodyContainer_content">
+      <form id="signup-form" style="display: none" onsubmit="validationForm(event)" action="./pages/ExamPage.html"
+        method="POST">
+        <h3>Sign Up</h3>
+
+        <!-- Full Name -->
+
+        <div class="fullname">
+          <div class="form-item">
+            <label for="signup-firstname">First Name:</label>
+            <input type="text" id="signup-firstname" name="firstname" placeholder="First Name" />
+          </div>
+          <div class="form-item">
+            <label for="signup-lastname">Last Name:</label>
+            <input type="text" id="signup-lastname" name="lastname" placeholder="Last Name" />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-item">
+          <label for="signup-email">Email:</label>
+          <input id="signup-email" name="email" placeholder="Example@example.com" />
+        </div>
+
+        <!-- Password and Confirmation -->
+        <div class="form-item">
+          <label for="signup-password">Password:</label>
+          <input type="password" id="signup-password" name="password"
+            placeholder="8+ chars, upper, lower, number, symbol" />
+          <label for=" signup-confirm-password">Re-enter Password:</label>
+          <input type="password" id="signup-confirm-password" name="confirm-password"
+            placeholder="Re-enter your password to confirm" />
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" id="signup-submit">Sign Up</button>
+
+        <!-- Login -->
+        <h5>
+          Already have an account? <a href="#" id="show-signup">Sign In</a>
+        </h5>
+      </form>
+
+      <form id="signin-form" action="./pages/ExamPage.html" method="POST" onsubmit="validateLoginForm(event)">
+        <h3>Sign In</h3>
+        <div class="form-item">
+          <label for="signin-email">Email:</label>
+          <input id="signin-email" name="email" />
+        </div>
+        <div class="form-item">
+          <label for="signin-password">Password:</label>
+          <input type="password" id="signin-password" name="password" />
+        </div>
+        <button type="submit" id="signin-submit">Sign In</button>
+        <h5>
+          Don't have an account? <a href="#" id="show-signup">Sign Up</a>
+        </h5>
+      </form>
+    </div>
+  </div>
+
+  <script src="./js/login.js"></script>
+</body>
+
+</html>
