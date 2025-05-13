@@ -212,8 +212,11 @@ main .userContainer h3 {
 
 .questionsSeriesContainer_Content {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(14, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
   justify-items: center;
   align-items: center;
   gap: 1rem;
@@ -425,13 +428,6 @@ aside {
     gap: 1rem;
   }
 
-  .questionsSeriesContainer_Content {
-    grid-template-columns: repeat(10, 1fr);
-  }
-  .questionNavBtn {
-    width: 4rem;
-    height: 4rem;
-  }
   aside {
     height: fit-content;
   }
@@ -468,9 +464,6 @@ aside {
     gap: 1rem;
   }
 
-  .questionsSeriesContainer_Content {
-    grid-template-columns: repeat(5, 1fr);
-  }
   aside {
     height: fit-content;
   }
